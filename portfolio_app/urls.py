@@ -1,6 +1,2 @@
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('', views.index, name='index'),
-]
+# URL routing is handled at project level in portfolio_project/urls.py
+# This file is kept for reference only.

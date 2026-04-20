@@ -17,7 +17,7 @@ def index(request):
     educations   = Education.objects.all()
     achievements = Achievement.objects.all()
 
-    return render(request, 'portfolio_app/index.html', {
+    return render(request, 'index.html', {
         'profile':      profile,
         'skill_cats':   skill_cats,
         'experiences':  experiences,

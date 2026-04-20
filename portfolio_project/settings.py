@@ -35,7 +35,7 @@ ROOT_URLCONF = 'portfolio_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],   # project-level templates folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,9 +69,10 @@ TIME_ZONE     = 'Asia/Kolkata'
 USE_I18N      = True
 USE_TZ        = True
 
-# Static files
-STATIC_URL        = '/static/'
-STATIC_ROOT       = BASE_DIR / 'staticfiles'
+# Static files — project-level static folder
+STATIC_URL       = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']      # project-level static source
+STATIC_ROOT      = BASE_DIR / 'staticfiles'   # collected output for production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files (uploaded photo & resume)
