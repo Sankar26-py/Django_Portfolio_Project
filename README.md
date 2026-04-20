@@ -2,212 +2,105 @@
 
 ## Project Structure
 ```
-django_portfolio/
+portfolio_project/
 ├── manage.py
 ├── requirements.txt
+├── render.yaml                       ← one-click Render.com deploy
+├── .gitignore
 ├── README.md
-├── portfolio/               ← Django project config
+├── portfolio_project/                ← Django config
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
-└── core/                    ← Portfolio app
-    ├── models.py            ← All content models
-    ├── admin.py             ← Admin configuration
-    ├── views.py             ← Views
-    ├── urls.py              ← URLs
+└── portfolio_app/                    ← Portfolio app
+    ├── models.py
+    ├── admin.py
+    ├── views.py
+    ├── urls.py
     ├── fixtures/
-    │   └── initial_data.json  ← Pre-loaded with your data
-    ├── templates/core/
-    │   └── index.html       ← Your portfolio HTML (Django template)
-    └── static/core/
-        ├── css/style.css    ← All your CSS
-        ├── js/main.js       ← All your JavaScript
-        └── images/          ← Place Sankar.jpg here
+    │   └── initial_data.json         ← pre-filled with your data
+    ├── templates/portfolio_app/
+    │   └── index.html                ← Django template
+    └── static/portfolio_app/
+        ├── css/style.css             ← all CSS
+        ├── js/main.js                ← all JS
+        └── images/Sankar.jpg         ← your photo
 ```
 
 ---
 
-## Setup (Local)
+## Quick Start (Local)
 
-### 1. Install dependencies
 ```bash
+# 1. Install
 pip install -r requirements.txt
-```
 
-### 2. Run migrations
-```bash
+# 2. Migrate
 python manage.py makemigrations
 python manage.py migrate
-```
 
-### 3. Load your data (pre-filled with your portfolio content)
-```bash
-python manage.py loaddata core/fixtures/initial_data.json
-```
+# 3. Load your data
+python manage.py loaddata portfolio_app/fixtures/initial_data.json
 
-### 4. Create admin user
-```bash
+# 4. Create admin login
 python manage.py createsuperuser
-# Enter: username, email, password
-```
 
-### 5. Collect static files
-```bash
+# 5. Collect static
 python manage.py collectstatic
-```
 
-### 6. Place your photo
-```
-Copy Sankar.jpg → core/static/core/images/Sankar.jpg
-```
-
-### 7. Run the server
-```bash
+# 6. Run
 python manage.py runserver
 ```
 
-### 8. Visit
-- Portfolio: http://127.0.0.1:8000/
-- Admin:     http://127.0.0.1:8000/admin/
+- Portfolio → http://127.0.0.1:8000/
+- Admin    → http://127.0.0.1:8000/admin/
 
 ---
 
-## Admin Panel — What You Can Edit
+## Admin — What You Can Edit
 
-Go to http://127.0.0.1:8000/admin/ and login.
+| Section              | Editable From Admin                          |
+|----------------------|----------------------------------------------|
+| Profile              | Name, bio, email, phone, photo, resume, stats, links |
+| About Highlights     | → bullet points (linked to Profile)          |
+| Languages            | Language + level (linked to Profile)         |
+| Certifications       | Icon, name, issuer (linked to Profile)       |
+| Skill Categories     | Group names + order                          |
+| Skills               | Individual skill tags + order                |
+| Experience           | Each role + bullet points                    |
+| Projects             | Cards, GitHub links, tags                    |
+| Education            | Degree, school, CGPA                         |
+| Achievements         | Icon, title, description, date               |
 
-| Section | What you can change |
-|---|---|
-| **Profile** | Name, bio, email, phone, links, photo upload, resume upload, stats |
-| **About Highlights** | The → bullet points in About section |
-| **Languages** | Language proficiency cards |
-| **Certifications** | Certification cards |
-| **Skill Categories** | Group names (Languages, Frameworks, etc.) |
-| **Skills** | Individual skill tags |
-| **Experience** | Each role tab + all bullet points |
-| **Projects** | Project cards, links, tags |
-| **Education** | Degree cards |
-| **Achievements** | Award cards |
-
-### Uploading Photo & Resume from Admin:
-1. Go to Admin → Profile → Click your profile
-2. Scroll to **Files** section
-3. Click **Choose File** next to Photo or Resume
-4. Save — it auto-appears on the portfolio!
+### Upload Photo & Resume:
+Admin → Profile → Files section → Choose File → Save
 
 ---
 
-## Deploy to Render.com (Free — Recommended)
+## Deploy Free — Render.com
 
-### 1. Push to GitHub
 ```bash
+# Push to GitHub
 git init
 git add .
-git commit -m "Initial Django portfolio"
-git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
+git commit -m "Initial commit"
+git remote add origin https://github.com/YOUR_USERNAME/portfolio_project.git
 git push -u origin main
+
+# Go to render.com → New Web Service → Connect GitHub → Deploy
 ```
+Live at: `https://sankar-portfolio.onrender.com`
 
-### 2. Create render.yaml in root
-```yaml
-services:
-  - type: web
-    name: sankar-portfolio
-    env: python
-    buildCommand: >
-      pip install -r requirements.txt &&
-      python manage.py makemigrations &&
-      python manage.py migrate &&
-      python manage.py loaddata core/fixtures/initial_data.json &&
-      python manage.py collectstatic --no-input
-    startCommand: gunicorn portfolio.wsgi:application
-    envVars:
-      - key: SECRET_KEY
-        generateValue: true
-      - key: DEBUG
-        value: False
-      - key: ALLOWED_HOSTS
-        value: .onrender.com
-```
+## Deploy — Azure Free Tier
 
-### 3. Go to render.com
-- Sign up (free)
-- New → Web Service
-- Connect GitHub repo
-- It auto-detects render.yaml
-- Deploy!
-
-Your site will be live at: `https://sankar-portfolio.onrender.com`
-
----
-
-## Deploy to Azure App Service (Free F1 Tier)
-
-### 1. Install Azure CLI
-```bash
-# Windows
-winget install Microsoft.AzureCLI
-
-# Mac
-brew install azure-cli
-```
-
-### 2. Login & Deploy
 ```bash
 az login
-
-# Create resource group
 az group create --name sankar-rg --location eastasia
-
-# Create app service plan (FREE tier)
-az appservice plan create \
-  --name sankar-plan \
-  --resource-group sankar-rg \
-  --sku F1 \
-  --is-linux
-
-# Create web app
-az webapp create \
-  --resource-group sankar-rg \
-  --plan sankar-plan \
-  --name sankar-portfolio \
-  --runtime "PYTHON:3.11"
-
-# Set startup command
-az webapp config set \
-  --resource-group sankar-rg \
-  --name sankar-portfolio \
-  --startup-file "gunicorn portfolio.wsgi:application"
-
-# Set environment variables
-az webapp config appsettings set \
-  --resource-group sankar-rg \
-  --name sankar-portfolio \
-  --settings SECRET_KEY="your-secret-key" DEBUG="False" ALLOWED_HOSTS=".azurewebsites.net"
-
-# Deploy via zip
-zip -r portfolio.zip . -x "*.pyc" -x "__pycache__/*" -x ".git/*"
-az webapp deployment source config-zip \
-  --resource-group sankar-rg \
-  --name sankar-portfolio \
-  --src portfolio.zip
+az appservice plan create --name sankar-plan --resource-group sankar-rg --sku F1 --is-linux
+az webapp create --resource-group sankar-rg --plan sankar-plan --name sankar-portfolio --runtime "PYTHON:3.11"
+az webapp config set --resource-group sankar-rg --name sankar-portfolio --startup-file "gunicorn portfolio_project.wsgi:application"
+az webapp config appsettings set --resource-group sankar-rg --name sankar-portfolio --settings SECRET_KEY="your-key" DEBUG="False" ALLOWED_HOSTS=".azurewebsites.net"
+zip -r portfolio.zip . -x "*.pyc" -x "__pycache__/*"
+az webapp deployment source config-zip --resource-group sankar-rg --name sankar-portfolio --src portfolio.zip
 ```
-
-Your site: `https://sankar-portfolio.azurewebsites.net`
-
----
-
-## Environment Variables (Production)
-
-Set these in your hosting platform:
-
-| Variable | Value |
-|---|---|
-| `SECRET_KEY` | A random long string (generate one) |
-| `DEBUG` | `False` |
-| `ALLOWED_HOSTS` | `.onrender.com` or `.azurewebsites.net` |
-
-Generate a secret key:
-```python
-python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
-```
+Live at: `https://sankar-portfolio.azurewebsites.net`

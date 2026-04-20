@@ -5,9 +5,9 @@ services:
     buildCommand: >
       pip install -r requirements.txt &&
       python manage.py migrate &&
-      python manage.py loaddata core/fixtures/initial_data.json &&
+      python manage.py loaddata portfolio_app/fixtures/initial_data.json &&
       python manage.py collectstatic --no-input
-    startCommand: gunicorn portfolio.wsgi:application
+    startCommand: gunicorn portfolio_project.wsgi:application
     envVars:
       - key: SECRET_KEY
         generateValue: true

@@ -7,18 +7,21 @@ from .models import (
 
 
 class AboutHighlightInline(admin.TabularInline):
-    model = AboutHighlight
-    extra = 1
+    model   = AboutHighlight
+    extra   = 1
+    fields  = ('text', 'order')
 
 
 class LanguageInline(admin.TabularInline):
-    model = Language
-    extra = 1
+    model  = Language
+    extra  = 1
+    fields = ('name', 'level', 'order')
 
 
 class CertificationInline(admin.TabularInline):
-    model = Certification
-    extra = 1
+    model  = Certification
+    extra  = 1
+    fields = ('icon', 'name', 'issuer', 'order')
 
 
 @admin.register(Profile)
@@ -40,7 +43,7 @@ class ProfileAdmin(admin.ModelAdmin):
             'fields': ('photo', 'resume'),
             'description': 'Upload your profile photo and resume PDF here'
         }),
-        ('Footer', {
+        ('🔻 Footer', {
             'fields': ('footer_text',)
         }),
     )
@@ -48,8 +51,9 @@ class ProfileAdmin(admin.ModelAdmin):
 
 
 class SkillInline(admin.TabularInline):
-    model = Skill
-    extra = 2
+    model  = Skill
+    extra  = 2
+    fields = ('name', 'order')
 
 
 @admin.register(SkillCategory)
@@ -60,8 +64,9 @@ class SkillCategoryAdmin(admin.ModelAdmin):
 
 
 class ExperienceBulletInline(admin.TabularInline):
-    model = ExperienceBullet
-    extra = 2
+    model  = ExperienceBullet
+    extra  = 2
+    fields = ('text', 'order')
 
 
 @admin.register(Experience)

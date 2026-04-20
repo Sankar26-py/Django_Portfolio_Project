@@ -6,14 +6,18 @@ from .models import (
 
 
 def index(request):
-    profile      = Profile.objects.first()
+    profile      = Profile.objects.prefetch_related(
+                       'about_highlights',
+                       'languages',
+                       'certifications'
+                   ).first()
     skill_cats   = SkillCategory.objects.prefetch_related('skills').all()
     experiences  = Experience.objects.prefetch_related('bullets').all()
     projects     = Project.objects.all()
     educations   = Education.objects.all()
     achievements = Achievement.objects.all()
 
-    return render(request, 'core/index.html', {
+    return render(request, 'portfolio_app/index.html', {
         'profile':      profile,
         'skill_cats':   skill_cats,
         'experiences':  experiences,
