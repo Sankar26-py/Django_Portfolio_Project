@@ -22,589 +22,87 @@
       "perf_gain": "30%",
       "automation_gain": "40%",
       "api_count": "5+",
-      "cgpa": "9.54"
+      "cgpa": "9.54",
+      "about_para1": "Results-driven Python Backend Developer with 3.6+ years at Tata Consultancy Services, progressing from Graduate Trainee all the way to System Engineer through consistent technical delivery.",
+      "about_para2": "I specialise in building scalable Django REST APIs, implementing OAuth 2.0 and JWT authentication, Redis caching strategies, and designing Celery-powered async pipelines. I'm driven by measurable outcomes — not just shipping code, but making systems meaningfully faster and more maintainable.",
+      "about_para3": "Currently preparing for the Microsoft Azure Developer Associate (AZ-204) certification to deepen cloud-integrated backend capabilities. Open to Python Django Developer, Backend Engineer, and related opportunities.",
+      "in_progress_title": "☁ AZ-204 — Azure Developer Associate",
+      "in_progress_text": "Preparing to build cloud-integrated backend solutions on Microsoft Azure.",
+      "company_name": "Tata Consultancy Services",
+      "company_sub": "Chennai, Tamil Nadu · Remote · Full-time",
+      "company_duration": "Sep 2022 – Present · 3 yrs 8 mos"
     }
   },
-  {
-    "model": "portfolio_app.abouthighlight",
-    "pk": 1,
-    "fields": {
-      "profile": 1,
-      "text": "Design & ship scalable RESTful APIs with OAuth 2.0 and JWT authentication",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.abouthighlight",
-    "pk": 2,
-    "fields": {
-      "profile": 1,
-      "text": "Implement Redis caching to reduce database load and improve response times",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.abouthighlight",
-    "pk": 3,
-    "fields": {
-      "profile": 1,
-      "text": "Build async task pipelines using Celery + Redis to decouple background jobs",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.abouthighlight",
-    "pk": 4,
-    "fields": {
-      "profile": 1,
-      "text": "Refactor & optimise PostgreSQL queries for measurable performance gains",
-      "order": 4
-    }
-  },
-  {
-    "model": "portfolio_app.abouthighlight",
-    "pk": 5,
-    "fields": {
-      "profile": 1,
-      "text": "Collaborate across frontend, QA, and product teams on tight deadlines",
-      "order": 5
-    }
-  },
-  {
-    "model": "portfolio_app.language",
-    "pk": 1,
-    "fields": {
-      "profile": 1,
-      "name": "English",
-      "level": "Professional Working",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.language",
-    "pk": 2,
-    "fields": {
-      "profile": 1,
-      "name": "Tamil",
-      "level": "Native / Bilingual",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.certification",
-    "pk": 1,
-    "fields": {
-      "profile": 1,
-      "icon": "🐍",
-      "name": "Complete Python Bootcamp — Zero to Hero",
-      "issuer": "Udemy · Jun 2024",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.certification",
-    "pk": 2,
-    "fields": {
-      "profile": 1,
-      "icon": "🗄️",
-      "name": "Oracle Database 12c: Basic SQL",
-      "issuer": "LinkedIn · Apr 2024",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.skillcategory",
-    "pk": 1,
-    "fields": {
-      "name": "Languages",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.skillcategory",
-    "pk": 2,
-    "fields": {
-      "name": "Frameworks & Libraries",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.skillcategory",
-    "pk": 3,
-    "fields": {
-      "name": "Databases & Caching",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.skillcategory",
-    "pk": 4,
-    "fields": {
-      "name": "Authentication & Security",
-      "order": 4
-    }
-  },
-  {
-    "model": "portfolio_app.skillcategory",
-    "pk": 5,
-    "fields": {
-      "name": "Tools & DevOps",
-      "order": 5
-    }
-  },
-  {
-    "model": "portfolio_app.skillcategory",
-    "pk": 6,
-    "fields": {
-      "name": "Concepts & Practices",
-      "order": 6
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 1,
-    "fields": {
-      "category": 1,
-      "name": "Python",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 2,
-    "fields": {
-      "category": 1,
-      "name": "HTML5",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 3,
-    "fields": {
-      "category": 2,
-      "name": "Django",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 4,
-    "fields": {
-      "category": 2,
-      "name": "Django REST Framework",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 5,
-    "fields": {
-      "category": 2,
-      "name": "Celery",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 6,
-    "fields": {
-      "category": 3,
-      "name": "PostgreSQL",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 7,
-    "fields": {
-      "category": 3,
-      "name": "SQLite3",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 8,
-    "fields": {
-      "category": 3,
-      "name": "Redis",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 9,
-    "fields": {
-      "category": 4,
-      "name": "OAuth 2.0",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 10,
-    "fields": {
-      "category": 4,
-      "name": "JWT",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 11,
-    "fields": {
-      "category": 4,
-      "name": "Token-based Auth",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 12,
-    "fields": {
-      "category": 5,
-      "name": "Git",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 13,
-    "fields": {
-      "category": 5,
-      "name": "GitHub",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 14,
-    "fields": {
-      "category": 6,
-      "name": "RESTful API Design",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 15,
-    "fields": {
-      "category": 6,
-      "name": "Agile/Scrum",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 16,
-    "fields": {
-      "category": 6,
-      "name": "Query Optimisation",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 17,
-    "fields": {
-      "category": 6,
-      "name": "Code Refactoring",
-      "order": 4
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 18,
-    "fields": {
-      "category": 6,
-      "name": "Async Processing",
-      "order": 5
-    }
-  },
-  {
-    "model": "portfolio_app.skill",
-    "pk": 19,
-    "fields": {
-      "category": 6,
-      "name": "Backend Optimisation",
-      "order": 6
-    }
-  },
-  {
-    "model": "portfolio_app.experience",
-    "pk": 1,
-    "fields": {
-      "role": "System Engineer",
-      "company": "Tata Consultancy Services",
-      "location": "Chennai",
-      "start_date": "Sep 2025",
-      "end_date": "Present",
-      "duration": "8 mos",
-      "is_current": true,
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.experience",
-    "pk": 2,
-    "fields": {
-      "role": "Assistant System Engineer",
-      "company": "Tata Consultancy Services",
-      "location": "Chennai",
-      "start_date": "Sep 2024",
-      "end_date": "Aug 2025",
-      "duration": "1 yr",
-      "is_current": false,
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.experience",
-    "pk": 3,
-    "fields": {
-      "role": "Programmer",
-      "company": "Tata Consultancy Services",
-      "location": "Chennai",
-      "start_date": "Sep 2023",
-      "end_date": "Aug 2024",
-      "duration": "1 yr",
-      "is_current": false,
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.experience",
-    "pk": 4,
-    "fields": {
-      "role": "Graduate Trainee",
-      "company": "Tata Consultancy Services",
-      "location": "Chennai",
-      "start_date": "Sep 2022",
-      "end_date": "Aug 2023",
-      "duration": "1 yr",
-      "is_current": false,
-      "order": 4
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 1,
-    "fields": {
-      "experience": 1,
-      "text": "Promoted to System Engineer after 3 years of consistent delivery — progressing through Graduate Trainee → Programmer → ASE → SE.",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 2,
-    "fields": {
-      "experience": 1,
-      "text": "Leading backend development of Django REST Framework APIs for production systems, owning end-to-end design, implementation, and optimisation of critical service endpoints.",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 3,
-    "fields": {
-      "experience": 1,
-      "text": "Implemented secure authentication systems using OAuth 2.0 and JWT tokens, ensuring robust user authentication and authorization across multiple applications with token-based session management.",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 4,
-    "fields": {
-      "experience": 1,
-      "text": "Introduced Redis caching and Celery-based async task processing to improve throughput on data-heavy API endpoints, reducing average response time for background operations.",
-      "order": 4
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 5,
-    "fields": {
-      "experience": 1,
-      "text": "Recognised with TCS Gems Service & Commitment Award (Sep 2025) for sustained excellence and 3 years of dedicated contribution.",
-      "order": 5
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 6,
-    "fields": {
-      "experience": 2,
-      "text": "Delivered the 30% system performance improvement through a focused refactoring initiative — profiling bottlenecks, rewriting inefficient ORM queries, and introducing Redis caching across core Django views.",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 7,
-    "fields": {
-      "experience": 2,
-      "text": "Designed and implemented RESTful API authentication using JWT, improving security posture and enabling stateless session management across distributed services.",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 8,
-    "fields": {
-      "experience": 2,
-      "text": "Completed MCA with 9.54 CGPA from SRMIST while maintaining full-time engineering delivery at TCS — demonstrating strong time management and discipline.",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 9,
-    "fields": {
-      "experience": 3,
-      "text": "Built and scaled Python scripting pipelines reducing manual data-processing workload by approximately 40%, directly improving team throughput during high-volume delivery.",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 10,
-    "fields": {
-      "experience": 3,
-      "text": "Developed DRF API endpoints and integrated Celery for async task handling, establishing background processing patterns adopted in later project phases.",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 11,
-    "fields": {
-      "experience": 3,
-      "text": "Managed SQLite3-backed internal tooling ensuring data integrity through structured input validation and ORM best practices.",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 12,
-    "fields": {
-      "experience": 4,
-      "text": "Built foundational Django web applications and REST API integrations, gaining production-level experience with Git, SQLite3, and cross-team collaboration.",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 13,
-    "fields": {
-      "experience": 4,
-      "text": "Contributed to internal tooling and backend workflow systems, establishing best practices that supported team efficiency in subsequent cycles.",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.experiencebullet",
-    "pk": 14,
-    "fields": {
-      "experience": 4,
-      "text": "Built and maintained Python desktop applications with SQLite3 backends for internal data storage, querying, and operational workflows.",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.project",
-    "pk": 1,
-    "fields": {
-      "title": "Multi-vendor Restaurant Marketplace",
-      "description": "Production-ready food delivery platform with multi-vendor support, role-based access control for customers, vendors & admins, and location-based restaurant filtering. Features dynamic cart with session management and a full relational schema for multi-vendor food categories and order states.",
-      "github_url": "https://github.com/Sankar26-py/foodOnline",
-      "label": "GitHub →",
-      "is_external": true,
-      "tags": "Django, DRF, PostgreSQL, RBAC, Django ORM, Git",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.project",
-    "pk": 2,
-    "fields": {
-      "title": "Calorie Calculator — Django App",
-      "description": "Full-stack Django web application calculating daily calorie intake based on user-selected food items. Relational data model covering 100+ food categories stored in SQLite3, with class-based views, structured input validation, and full MVT architecture following Django best practices.",
-      "github_url": "",
-      "label": "SRMIST Thesis",
-      "is_external": false,
-      "tags": "Django, SQLite3, CBVs, Django ORM, MVT, Git",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.education",
-    "pk": 1,
-    "fields": {
-      "degree": "Master of Computer Applications (MCA)",
-      "school": "SRMIST, Kattankulathur, Chennai",
-      "period": "Jan 2023 – Dec 2024",
-      "cgpa": "9.54 CGPA",
-      "label": "Online Degree",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.education",
-    "pk": 2,
-    "fields": {
-      "degree": "Bachelor of Computer Applications (BCA)",
-      "school": "K.S. Rangasamy College of Arts & Science, Tiruchengode",
-      "period": "2019 – 2022",
-      "cgpa": "8.3 CGPA",
-      "label": "",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.achievement",
-    "pk": 1,
-    "fields": {
-      "icon": "🏆",
-      "title": "TCS Gems — Service & Commitment Award",
-      "description": "Recognised for completing 3 years of dedicated service and consistent high performance at Tata Consultancy Services.",
-      "date_label": "TCS · Sep 2025",
-      "order": 1
-    }
-  },
-  {
-    "model": "portfolio_app.achievement",
-    "pk": 2,
-    "fields": {
-      "icon": "⭐",
-      "title": "TCS Gems — Certificate of Appreciation",
-      "description": "Awarded for contributing to CMI CSR Community events and supporting CSR initiatives at TCS.",
-      "date_label": "TCS · May 2025",
-      "order": 2
-    }
-  },
-  {
-    "model": "portfolio_app.achievement",
-    "pk": 3,
-    "fields": {
-      "icon": "📈",
-      "title": "4-Level Promotion in 3 Years",
-      "description": "Progressed from Graduate Trainee → Programmer → ASE → System Engineer based on consistent technical delivery.",
-      "date_label": "TCS · 2022 – 2025",
-      "order": 3
-    }
-  },
-  {
-    "model": "portfolio_app.achievement",
-    "pk": 4,
-    "fields": {
-      "icon": "🎓",
-      "title": "MCA with 9.54 CGPA — SRMIST",
-      "description": "Completed Master's with distinction while simultaneously delivering full-time engineering at TCS.",
-      "date_label": "SRMIST · Dec 2024",
-      "order": 4
-    }
-  }
+
+  { "model": "portfolio_app.abouthighlight", "pk": 1, "fields": { "profile": 1, "text": "Design & ship scalable RESTful APIs with OAuth 2.0 and JWT authentication", "order": 1 } },
+  { "model": "portfolio_app.abouthighlight", "pk": 2, "fields": { "profile": 1, "text": "Implement Redis caching to reduce database load and improve response times", "order": 2 } },
+  { "model": "portfolio_app.abouthighlight", "pk": 3, "fields": { "profile": 1, "text": "Build async task pipelines using Celery + Redis to decouple background jobs", "order": 3 } },
+  { "model": "portfolio_app.abouthighlight", "pk": 4, "fields": { "profile": 1, "text": "Refactor & optimise PostgreSQL queries for measurable performance gains", "order": 4 } },
+  { "model": "portfolio_app.abouthighlight", "pk": 5, "fields": { "profile": 1, "text": "Collaborate across frontend, QA, and product teams on tight deadlines", "order": 5 } },
+
+  { "model": "portfolio_app.language", "pk": 1, "fields": { "profile": 1, "name": "English", "level": "Professional Working", "order": 1 } },
+  { "model": "portfolio_app.language", "pk": 2, "fields": { "profile": 1, "name": "Tamil",   "level": "Native / Bilingual",     "order": 2 } },
+
+  { "model": "portfolio_app.certification", "pk": 1, "fields": { "profile": 1, "icon": "🐍",  "name": "Complete Python Bootcamp — Zero to Hero", "issuer": "Udemy · Jun 2024",    "order": 1 } },
+  { "model": "portfolio_app.certification", "pk": 2, "fields": { "profile": 1, "icon": "🗄️", "name": "Oracle Database 12c: Basic SQL",          "issuer": "LinkedIn · Apr 2024", "order": 2 } },
+
+  { "model": "portfolio_app.skillcategory", "pk": 1, "fields": { "name": "Languages",             "order": 1 } },
+  { "model": "portfolio_app.skillcategory", "pk": 2, "fields": { "name": "Frameworks & Libraries", "order": 2 } },
+  { "model": "portfolio_app.skillcategory", "pk": 3, "fields": { "name": "Databases & Caching",    "order": 3 } },
+  { "model": "portfolio_app.skillcategory", "pk": 4, "fields": { "name": "Authentication & Security", "order": 4 } },
+  { "model": "portfolio_app.skillcategory", "pk": 5, "fields": { "name": "Tools & DevOps",         "order": 5 } },
+  { "model": "portfolio_app.skillcategory", "pk": 6, "fields": { "name": "Concepts & Practices",   "order": 6 } },
+
+  { "model": "portfolio_app.skill", "pk": 1,  "fields": { "category": 1, "name": "Python",                "order": 1 } },
+  { "model": "portfolio_app.skill", "pk": 2,  "fields": { "category": 1, "name": "HTML5",                 "order": 2 } },
+  { "model": "portfolio_app.skill", "pk": 3,  "fields": { "category": 2, "name": "Django",                "order": 1 } },
+  { "model": "portfolio_app.skill", "pk": 4,  "fields": { "category": 2, "name": "Django REST Framework", "order": 2 } },
+  { "model": "portfolio_app.skill", "pk": 5,  "fields": { "category": 2, "name": "Celery",                "order": 3 } },
+  { "model": "portfolio_app.skill", "pk": 6,  "fields": { "category": 3, "name": "PostgreSQL",            "order": 1 } },
+  { "model": "portfolio_app.skill", "pk": 7,  "fields": { "category": 3, "name": "SQLite3",               "order": 2 } },
+  { "model": "portfolio_app.skill", "pk": 8,  "fields": { "category": 3, "name": "Redis",                 "order": 3 } },
+  { "model": "portfolio_app.skill", "pk": 9,  "fields": { "category": 4, "name": "OAuth 2.0",             "order": 1 } },
+  { "model": "portfolio_app.skill", "pk": 10, "fields": { "category": 4, "name": "JWT",                   "order": 2 } },
+  { "model": "portfolio_app.skill", "pk": 11, "fields": { "category": 4, "name": "Token-based Auth",      "order": 3 } },
+  { "model": "portfolio_app.skill", "pk": 12, "fields": { "category": 5, "name": "Git",                   "order": 1 } },
+  { "model": "portfolio_app.skill", "pk": 13, "fields": { "category": 5, "name": "GitHub",                "order": 2 } },
+  { "model": "portfolio_app.skill", "pk": 14, "fields": { "category": 6, "name": "RESTful API Design",    "order": 1 } },
+  { "model": "portfolio_app.skill", "pk": 15, "fields": { "category": 6, "name": "Agile/Scrum",           "order": 2 } },
+  { "model": "portfolio_app.skill", "pk": 16, "fields": { "category": 6, "name": "Query Optimisation",    "order": 3 } },
+  { "model": "portfolio_app.skill", "pk": 17, "fields": { "category": 6, "name": "Code Refactoring",      "order": 4 } },
+  { "model": "portfolio_app.skill", "pk": 18, "fields": { "category": 6, "name": "Async Processing",      "order": 5 } },
+  { "model": "portfolio_app.skill", "pk": 19, "fields": { "category": 6, "name": "Backend Optimisation",  "order": 6 } },
+
+  { "model": "portfolio_app.experience", "pk": 1, "fields": { "role": "System Engineer",          "tab_label": "System Engineer",      "company": "Tata Consultancy Services", "location": "Chennai", "start_date": "Sep 2025", "end_date": "Present",   "duration": "8 mos", "is_current": true,  "order": 1 } },
+  { "model": "portfolio_app.experience", "pk": 2, "fields": { "role": "Assistant System Engineer", "tab_label": "Asst. System Engineer", "company": "Tata Consultancy Services", "location": "Chennai", "start_date": "Sep 2024", "end_date": "Aug 2025", "duration": "1 yr",  "is_current": false, "order": 2 } },
+  { "model": "portfolio_app.experience", "pk": 3, "fields": { "role": "Programmer",               "tab_label": "Programmer",           "company": "Tata Consultancy Services", "location": "Chennai", "start_date": "Sep 2023", "end_date": "Aug 2024", "duration": "1 yr",  "is_current": false, "order": 3 } },
+  { "model": "portfolio_app.experience", "pk": 4, "fields": { "role": "Graduate Trainee",         "tab_label": "Graduate Trainee",     "company": "Tata Consultancy Services", "location": "Chennai", "start_date": "Sep 2022", "end_date": "Aug 2023", "duration": "1 yr",  "is_current": false, "order": 4 } },
+
+  { "model": "portfolio_app.experiencebullet", "pk": 1,  "fields": { "experience": 1, "text": "Promoted to System Engineer after 3 years of consistent delivery — progressing through Graduate Trainee → Programmer → ASE → SE.", "order": 1 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 2,  "fields": { "experience": 1, "text": "Leading backend development of Django REST Framework APIs for production systems, owning end-to-end design, implementation, and optimisation of critical service endpoints.", "order": 2 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 3,  "fields": { "experience": 1, "text": "Implemented secure authentication systems using OAuth 2.0 and JWT tokens, ensuring robust user authentication and authorization across multiple applications with token-based session management.", "order": 3 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 4,  "fields": { "experience": 1, "text": "Introduced Redis caching and Celery-based async task processing to improve throughput on data-heavy API endpoints, reducing average response time for background operations.", "order": 4 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 5,  "fields": { "experience": 1, "text": "Driving continued performance improvements through systematic code profiling, query analysis, and scalability refactoring.", "order": 5 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 6,  "fields": { "experience": 1, "text": "Recognised with TCS Gems Service & Commitment Award (Sep 2025) for sustained excellence and 3 years of dedicated contribution.", "order": 6 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 7,  "fields": { "experience": 2, "text": "Delivered the 30% system performance improvement through a focused refactoring initiative — profiling bottlenecks, rewriting inefficient ORM queries, and introducing Redis caching across core Django views.", "order": 1 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 8,  "fields": { "experience": 2, "text": "Designed and implemented RESTful API authentication using JWT, improving security posture and enabling stateless session management across distributed services.", "order": 2 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 9,  "fields": { "experience": 2, "text": "Completed MCA with 9.54 CGPA from SRMIST while maintaining full-time engineering delivery at TCS — demonstrating strong time management and discipline.", "order": 3 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 10, "fields": { "experience": 2, "text": "Designed and documented RESTful endpoints consumed by frontend teams, significantly reducing integration debugging time.", "order": 4 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 11, "fields": { "experience": 3, "text": "Built and scaled Python scripting pipelines reducing manual data-processing workload by approximately 40%, directly improving team throughput during high-volume delivery.", "order": 1 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 12, "fields": { "experience": 3, "text": "Developed DRF API endpoints and integrated Celery for async task handling, establishing background processing patterns adopted in later project phases.", "order": 2 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 13, "fields": { "experience": 3, "text": "Managed SQLite3-backed internal tooling ensuring data integrity through structured input validation and ORM best practices.", "order": 3 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 14, "fields": { "experience": 4, "text": "Built foundational Django web applications and REST API integrations, gaining production-level experience with Git, SQLite3, and cross-team collaboration.", "order": 1 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 15, "fields": { "experience": 4, "text": "Contributed to internal tooling and backend workflow systems, establishing best practices that supported team efficiency in subsequent cycles.", "order": 2 } },
+  { "model": "portfolio_app.experiencebullet", "pk": 16, "fields": { "experience": 4, "text": "Built and maintained Python desktop applications with SQLite3 backends for internal data storage, querying, and operational workflows.", "order": 3 } },
+
+  { "model": "portfolio_app.project", "pk": 1, "fields": { "title": "Multi-vendor Restaurant Marketplace", "description": "Production-ready food delivery platform with multi-vendor support, role-based access control for customers, vendors & admins, and location-based restaurant filtering. Features dynamic cart with session management and a full relational schema for multi-vendor food categories and order states.", "github_url": "https://github.com/Sankar26-py/foodOnline", "label": "GitHub →", "is_external": true,  "tags": "Django, DRF, PostgreSQL, RBAC, Django ORM, Git", "order": 1 } },
+  { "model": "portfolio_app.project", "pk": 2, "fields": { "title": "Calorie Calculator — Django App",      "description": "Full-stack Django web application calculating daily calorie intake based on user-selected food items. Relational data model covering 100+ food categories stored in SQLite3, with class-based views, structured input validation, and full MVT architecture following Django best practices.", "github_url": "", "label": "SRMIST Thesis", "is_external": false, "tags": "Django, SQLite3, CBVs, Django ORM, MVT, Git",    "order": 2 } },
+
+  { "model": "portfolio_app.education", "pk": 1, "fields": { "degree": "Master of Computer Applications",  "school": "SRMIST, Kattankulathur, Chennai",                            "period": "Jan 2023 – Dec 2024", "cgpa": "9.54 CGPA", "label": "Online Degree", "order": 1 } },
+  { "model": "portfolio_app.education", "pk": 2, "fields": { "degree": "Bachelor of Computer Applications", "school": "K.S. Rangasamy College of Arts & Science, Tiruchengode", "period": "2019 – 2022",        "cgpa": "8.3 CGPA",  "label": "",             "order": 2 } },
+
+  { "model": "portfolio_app.achievement", "pk": 1, "fields": { "icon": "🏆", "title": "TCS Gems — Service & Commitment Award", "description": "Recognised for completing 3 years of dedicated service and consistent high performance at Tata Consultancy Services.", "date_label": "TCS · Sep 2025",  "order": 1 } },
+  { "model": "portfolio_app.achievement", "pk": 2, "fields": { "icon": "⭐", "title": "TCS Gems — Certificate of Appreciation", "description": "Awarded for contributing to CMI CSR Community events and supporting CSR initiatives at TCS.",                           "date_label": "TCS · May 2025",  "order": 2 } },
+  { "model": "portfolio_app.achievement", "pk": 3, "fields": { "icon": "📈", "title": "4-Level Promotion in 3 Years",           "description": "Progressed from Graduate Trainee → Programmer → ASE → System Engineer based on consistent technical delivery.",           "date_label": "TCS · 2022 – 2025", "order": 3 } },
+  { "model": "portfolio_app.achievement", "pk": 4, "fields": { "icon": "🎓", "title": "MCA with 9.54 CGPA — SRMIST",           "description": "Completed Master's with distinction while simultaneously delivering full-time engineering at TCS.",                         "date_label": "SRMIST · Dec 2024", "order": 4 } }
 ]

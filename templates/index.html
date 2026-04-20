@@ -33,7 +33,6 @@
   <div class="orb orb-a"></div>
   <div class="orb orb-b"></div>
   <div class="orb orb-c"></div>
-
   <div class="hero-chip">{{ profile.tagline }}</div>
 
   <!-- Profile Photo -->
@@ -42,7 +41,7 @@
       {% if profile.photo %}
         <img src="{{ profile.photo.url }}" alt="{{ profile.name }}" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
       {% else %}
-        <div class="photo-placeholder"><span>SK</span></div>
+        <img src="{% static 'images/Sankar.jpg' %}" alt="{{ profile.name }}" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
       {% endif %}
     </div>
   </div>
@@ -71,13 +70,12 @@
   <h2 class="s-title">Who I <span class="hl">Am</span></h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>{{ profile.bio }}</p>
+      <p>{{ profile.about_para1 }}</p>
+      <p>{{ profile.about_para2 }}</p>
+      <p>{{ profile.about_para3 }}</p>
       <div class="about-highlights">
         {% for hl in profile.about_highlights.all %}
-        <div class="hl-row">
-          <span class="arr">→</span>
-          <span>{{ hl.text }}</span>
-        </div>
+        <div class="hl-row"><span class="arr">→</span><span>{{ hl.text }}</span></div>
         {% endfor %}
       </div>
     </div>
@@ -113,6 +111,17 @@
       </div>
       {% endif %}
 
+      <!-- In Progress (AZ-204) -->
+      {% if profile.in_progress_title %}
+      <div class="aside-card">
+        <div class="aside-title">In Progress</div>
+        <div class="azure-badge">
+          <strong>{{ profile.in_progress_title }}</strong>
+          {{ profile.in_progress_text }}
+        </div>
+      </div>
+      {% endif %}
+
     </div>
   </div>
 </section>
@@ -120,18 +129,8 @@
 <!-- SKILLS -->
 <section id="skills">
   <h2 class="s-title">Skills &amp; <span class="hl">Technologies</span></h2>
-  <div class="skills-grid">
-    {% for cat in skill_cats %}
-    <div class="sk-cat">
-      <div class="sk-cat-title">{{ cat.name }}</div>
-      <div class="tags-wrap">
-        {% for skill in cat.skills.all %}
-        <div class="tag"><span>{{ skill.name }}</span></div>
-        {% endfor %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
+  <p class="skills-hint">Click <span class="pill">✕</span> to remove · type a skill and press <span class="pill">Enter ↵</span> or <span class="pill">+ Add</span> to add your own</p>
+  <div class="skills-grid" id="skillsGrid"></div>
 </section>
 
 <!-- EXPERIENCE -->
@@ -142,18 +141,18 @@
       <div class="tcs-logo-area">
         <div class="tcs-circle">TCS</div>
         <div>
-          <div class="tcs-name">Tata Consultancy Services</div>
-          <div class="tcs-sub">Chennai, Tamil Nadu · Full-time</div>
+          <div class="tcs-name">{{ profile.company_name }}</div>
+          <div class="tcs-sub">{{ profile.company_sub }}</div>
         </div>
       </div>
-      <span class="tcs-dur">Sep 2022 – Present · 3 yrs 8 mos</span>
+      <span class="tcs-dur">{{ profile.company_duration }}</span>
     </div>
 
     <!-- Role Tabs -->
     <div class="role-tabs">
       {% for exp in experiences %}
       <div class="rtab {% if forloop.first %}active{% endif %}" onclick="switchRole({{ forloop.counter0 }})">
-        {{ exp.role }}
+        {{ exp.tab_label|default:exp.role }}
         {% if exp.is_current %}<span class="promo-badge">Current</span>{% endif %}
       </div>
       {% endfor %}
@@ -166,7 +165,7 @@
         <div>
           <div class="exp-role">
             {{ exp.role }}
-            {% if exp.is_current %}<span class="promo-badge">🏅 Current</span>{% endif %}
+            {% if exp.is_current %}<span class="promo-badge">🏅 Promoted</span>{% endif %}
           </div>
           <div class="exp-co">{{ exp.company }}</div>
         </div>
@@ -265,6 +264,10 @@
 
 <footer>{{ profile.footer_text }}</footer>
 
+<!-- Skills data from DB passed to JS -->
+<script>
+const skillData = {{ skill_data_json|safe }};
+</script>
 <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

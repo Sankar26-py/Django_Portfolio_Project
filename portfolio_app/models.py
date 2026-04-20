@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Profile(models.Model):
-    """Hero section & general info — edit everything from admin"""
+    # ── Hero ──────────────────────────────────────────────
     name               = models.CharField(max_length=100, default="Sankar K")
     title              = models.CharField(max_length=100, default="Backend Dev.")
     tagline            = models.CharField(max_length=200, default="Available for Backend Roles")
@@ -17,14 +17,28 @@ class Profile(models.Model):
     photo              = models.ImageField(upload_to='profile/', blank=True, null=True)
     resume             = models.FileField(upload_to='resume/', blank=True, null=True)
     is_open_to_work    = models.BooleanField(default=True)
-    footer_text        = models.CharField(max_length=200, default="Designed & built — Sankar K © 2026 · Python Django Developer · Chennai, India")
+    footer_text        = models.CharField(max_length=300, default="Designed & built — Sankar K © 2026 · Python Django Developer · Chennai, India")
 
-    # Stats row
+    # ── Stats row ─────────────────────────────────────────
     years_exp          = models.CharField(max_length=10, default="3.6+")
     perf_gain          = models.CharField(max_length=10, default="30%")
     automation_gain    = models.CharField(max_length=10, default="40%")
     api_count          = models.CharField(max_length=10, default="5+")
     cgpa               = models.CharField(max_length=10, default="9.54")
+
+    # ── About — 3 paragraphs ──────────────────────────────
+    about_para1        = models.TextField(default="Results-driven Python Backend Developer with 3.6+ years at Tata Consultancy Services, progressing from Graduate Trainee all the way to System Engineer through consistent technical delivery.")
+    about_para2        = models.TextField(default="I specialise in building scalable Django REST APIs, implementing OAuth 2.0 and JWT authentication, Redis caching strategies, and designing Celery-powered async pipelines.")
+    about_para3        = models.TextField(default="Currently preparing for the Microsoft Azure Developer Associate (AZ-204) certification to deepen cloud-integrated backend capabilities.")
+
+    # ── About sidebar — In Progress card ─────────────────
+    in_progress_title  = models.CharField(max_length=200, default="☁ AZ-204 — Azure Developer Associate", blank=True)
+    in_progress_text   = models.TextField(default="Preparing to build cloud-integrated backend solutions on Microsoft Azure.", blank=True)
+
+    # ── Experience company header ─────────────────────────
+    company_name       = models.CharField(max_length=100, default="Tata Consultancy Services")
+    company_sub        = models.CharField(max_length=150, default="Chennai, Tamil Nadu · Remote · Full-time")
+    company_duration   = models.CharField(max_length=100, default="Sep 2022 – Present · 3 yrs 8 mos")
 
     class Meta:
         verbose_name = "Profile"
@@ -34,7 +48,6 @@ class Profile(models.Model):
 
 
 class AboutHighlight(models.Model):
-    """Bullet points in the About section"""
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="about_highlights")
     text    = models.CharField(max_length=300)
     order   = models.PositiveIntegerField(default=0)
@@ -48,7 +61,6 @@ class AboutHighlight(models.Model):
 
 
 class Language(models.Model):
-    """Languages card in about sidebar"""
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="languages")
     name    = models.CharField(max_length=50)
     level   = models.CharField(max_length=50)
@@ -62,7 +74,6 @@ class Language(models.Model):
 
 
 class Certification(models.Model):
-    """Certifications card in about sidebar"""
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="certifications")
     icon    = models.CharField(max_length=10, default="🐍")
     name    = models.CharField(max_length=200)
@@ -77,7 +88,6 @@ class Certification(models.Model):
 
 
 class SkillCategory(models.Model):
-    """Each skill group in the Skills section"""
     name  = models.CharField(max_length=100)
     order = models.PositiveIntegerField(default=0)
 
@@ -91,7 +101,6 @@ class SkillCategory(models.Model):
 
 
 class Skill(models.Model):
-    """Individual skill tag within a category"""
     category = models.ForeignKey(SkillCategory, on_delete=models.CASCADE, related_name='skills')
     name     = models.CharField(max_length=100)
     order    = models.PositiveIntegerField(default=0)
@@ -104,7 +113,6 @@ class Skill(models.Model):
 
 
 class Experience(models.Model):
-    """Each role/tab in the Experience section"""
     role       = models.CharField(max_length=100)
     company    = models.CharField(max_length=100)
     location   = models.CharField(max_length=100)
@@ -112,6 +120,7 @@ class Experience(models.Model):
     end_date   = models.CharField(max_length=50, default="Present")
     duration   = models.CharField(max_length=50)
     is_current = models.BooleanField(default=False)
+    tab_label  = models.CharField(max_length=100, blank=True, help_text="Short label for the tab e.g. 'Asst. System Engineer'")
     order      = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -122,7 +131,6 @@ class Experience(models.Model):
 
 
 class ExperienceBullet(models.Model):
-    """Bullet point under each experience role"""
     experience = models.ForeignKey(Experience, on_delete=models.CASCADE, related_name='bullets')
     text       = models.TextField()
     order      = models.PositiveIntegerField(default=0)
@@ -135,12 +143,11 @@ class ExperienceBullet(models.Model):
 
 
 class Project(models.Model):
-    """Cards in the Projects section"""
     title       = models.CharField(max_length=200)
     description = models.TextField()
     github_url  = models.URLField(blank=True)
-    label       = models.CharField(max_length=50, blank=True, help_text="e.g. 'GitHub →' or 'SRMIST Thesis'")
-    is_external = models.BooleanField(default=True, help_text="If False, shows as muted label (no link)")
+    label       = models.CharField(max_length=50, blank=True)
+    is_external = models.BooleanField(default=True)
     tags        = models.CharField(max_length=500, help_text="Comma-separated: Django, DRF, PostgreSQL")
     order       = models.PositiveIntegerField(default=0)
 
@@ -155,12 +162,11 @@ class Project(models.Model):
 
 
 class Education(models.Model):
-    """Cards in the Education section"""
     degree = models.CharField(max_length=200)
     school = models.CharField(max_length=200)
     period = models.CharField(max_length=50)
     cgpa   = models.CharField(max_length=20, blank=True)
-    label  = models.CharField(max_length=50, blank=True, help_text="e.g. 'Online Degree'")
+    label  = models.CharField(max_length=50, blank=True)
     order  = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -171,7 +177,6 @@ class Education(models.Model):
 
 
 class Achievement(models.Model):
-    """Cards in the Achievements section"""
     icon        = models.CharField(max_length=10, default="🏆")
     title       = models.CharField(max_length=200)
     description = models.TextField()

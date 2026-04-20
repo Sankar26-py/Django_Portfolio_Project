@@ -7,9 +7,9 @@ from .models import (
 
 
 class AboutHighlightInline(admin.TabularInline):
-    model   = AboutHighlight
-    extra   = 1
-    fields  = ('text', 'order')
+    model  = AboutHighlight
+    extra  = 1
+    fields = ('text', 'order')
 
 
 class LanguageInline(admin.TabularInline):
@@ -41,7 +41,17 @@ class ProfileAdmin(admin.ModelAdmin):
         }),
         ('📁 Files', {
             'fields': ('photo', 'resume'),
-            'description': 'Upload your profile photo and resume PDF here'
+            'description': 'Upload profile photo and resume PDF here'
+        }),
+        ('📝 About Section — 3 Paragraphs', {
+            'fields': ('about_para1', 'about_para2', 'about_para3'),
+        }),
+        ('☁ In Progress Card (About Sidebar)', {
+            'fields': ('in_progress_title', 'in_progress_text'),
+            'description': 'Leave blank to hide the In Progress card'
+        }),
+        ('🏢 Experience Company Header', {
+            'fields': ('company_name', 'company_sub', 'company_duration'),
         }),
         ('🔻 Footer', {
             'fields': ('footer_text',)
@@ -71,7 +81,7 @@ class ExperienceBulletInline(admin.TabularInline):
 
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
-    list_display  = ('role', 'company', 'start_date', 'end_date', 'is_current', 'order')
+    list_display  = ('role', 'tab_label', 'company', 'start_date', 'end_date', 'is_current', 'order')
     list_editable = ('order', 'is_current')
     inlines       = [ExperienceBulletInline]
 
