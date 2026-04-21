@@ -1,14 +1,8 @@
-const skillData = [
-  { category: "Languages", tags: ["Python", "HTML5"] },
-  { category: "Frameworks & Libraries", tags: ["Django", "Django REST Framework", "Celery"] },
-  { category: "Databases & Caching", tags: ["PostgreSQL", "SQLite3", "Redis"] },
-  { category: "Authentication & Security", tags: ["OAuth 2.0", "JWT", "Token-based Auth"] },
-  { category: "Tools & DevOps", tags: ["Git", "GitHub"] },
-  { category: "Concepts & Practices", tags: ["RESTful API Design", "Agile/Scrum", "Query Optimisation", "Code Refactoring", "Async Processing", "Backend Optimisation"] }
-];
+// ─── Skills (skillData is injected by Django template inline script above) ───
 
 function renderSkills() {
   const grid = document.getElementById('skillsGrid');
+  if (!grid) return;
   grid.innerHTML = '';
   skillData.forEach((cat, ci) => {
     const card = document.createElement('div'); card.className = 'sk-cat';
@@ -29,6 +23,7 @@ function renderSkills() {
     row.appendChild(inp); row.appendChild(btn); card.appendChild(row); grid.appendChild(card);
   });
 }
+
 function makeTag(text, ci, ti) {
   const t = document.createElement('div'); t.className = 'tag';
   const l = document.createElement('span'); l.textContent = text;
@@ -36,34 +31,32 @@ function makeTag(text, ci, ti) {
   r.onclick = () => { skillData[ci].tags.splice(ti, 1); renderSkills(); };
   t.appendChild(l); t.appendChild(r); return t;
 }
-renderSkills();
+
+// ─── Experience role tabs ─────────────────────────────────────────────────────
 
 function switchRole(idx) {
   document.querySelectorAll('.rtab').forEach((t, i) => t.classList.toggle('active', i === idx));
   document.querySelectorAll('.role-panel').forEach((p, i) => p.classList.toggle('active', i === idx));
 }
 
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.edu-card, .ach-card, .proj-card').forEach(el => io.observe(el));
+// ─── On DOM ready ─────────────────────────────────────────────────────────────
 
-window.addEventListener('scroll', () => {
-  const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-  document.getElementById('scrollBar').style.width = p + '%';
-});
+document.addEventListener('DOMContentLoaded', function () {
 
-// Profile photo embedded directly as base64
+  // Render skills grid from DB-seeded skillData
+  renderSkills();
 
-// Resume Download (Footer/Contact Section)
-// IMPORTANT: Replace 'Sankar_K_Resume.pdf' with the actual path to your resume PDF
-document.getElementById('downloadResumeFooter').addEventListener('click', (e) => {
-  e.preventDefault();
-  const resumePath = 'Sankar_K_Resume.pdf';
-  const link = document.createElement('a');
-  link.href = resumePath;
-  link.download = 'Sankar_K_Resume.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  // Scroll-in animation for cards
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.edu-card, .ach-card, .proj-card').forEach(el => io.observe(el));
+
+  // Scroll progress bar
+  window.addEventListener('scroll', () => {
+    const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    const bar = document.getElementById('scrollBar');
+    if (bar) bar.style.width = p + '%';
+  });
+
 });
