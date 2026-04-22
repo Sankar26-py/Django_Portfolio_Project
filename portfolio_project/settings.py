@@ -87,4 +87,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Google Analytics — set your GA4 Measurement ID here
 # Get it free at: https://analytics.google.com
 # Example: 'G-XXXXXXXXXX'
-GOOGLE_ANALYTICS_ID = ''  # Leave empty to disable
+GOOGLE_ANALYTICS_ID = os.environ.get('GOOGLE_ANALYTICS_ID', '') #for deployement
