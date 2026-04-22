@@ -7,7 +7,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'change-me-in-production-use-env-varia
 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+# Allow localhost for dev, plus any host set in env (e.g. .onrender.com)
+_hosts = os.environ.get('ALLOWED_HOSTS', '')
+ALLOWED_HOSTS = [h.strip() for h in _hosts.split(',') if h.strip()] or ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',

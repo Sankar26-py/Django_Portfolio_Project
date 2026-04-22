@@ -3,19 +3,72 @@
 
 {% if visitor_stats %}
 <style>
-.visitor-stats{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0 1.5rem;padding:1.2rem;background:#1a1a2e;border-radius:8px;border:1px solid #2e2e42;}
-.vs-card{background:#16161f;border:1px solid #252535;border-radius:6px;padding:.9rem 1.4rem;min-width:110px;text-align:center;}
-.vs-num{font-size:2rem;font-weight:800;color:#00e5a0;line-height:1;}
-.vs-label{font-size:.7rem;color:#64648a;text-transform:uppercase;letter-spacing:.1em;margin-top:.3rem;}
-.vs-title{color:#eaeaf5;font-size:1rem;font-weight:700;margin-bottom:.8rem;}
+  .visitor-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0 1.5rem;
+    padding: 1.2rem;
+    background: #1a1a2e;
+    border-radius: 8px;
+    border: 1px solid #2e2e42;
+  }
+
+  .vs-card {
+    background: #16161f;
+    border: 1px solid #252535;
+    border-radius: 6px;
+    padding: .9rem 1.4rem;
+    min-width: 110px;
+    text-align: center;
+  }
+
+  .vs-num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #00e5a0;
+    line-height: 1;
+  }
+
+  .vs-label {
+    font-size: .7rem;
+    color: #64648a;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-top: .3rem;
+  }
+
+  .vs-title {
+    color: #eaeaf5;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: .8rem;
+  }
 </style>
 <div class="visitor-stats">
-  <div style="width:100%"><div class="vs-title">📊 Visitor Analytics</div></div>
-  <div class="vs-card"><div class="vs-num">{{ visitor_stats.today }}</div><div class="vs-label">Today</div></div>
-  <div class="vs-card"><div class="vs-num">{{ visitor_stats.week }}</div><div class="vs-label">This Week</div></div>
-  <div class="vs-card"><div class="vs-num">{{ visitor_stats.month }}</div><div class="vs-label">This Month</div></div>
-  <div class="vs-card"><div class="vs-num">{{ visitor_stats.total }}</div><div class="vs-label">All Time</div></div>
-  <div class="vs-card"><div class="vs-num">{{ visitor_stats.unique }}</div><div class="vs-label">Unique IPs</div></div>
+  <div style="width:100%">
+    <div class="vs-title">📊 Visitor Analytics</div>
+  </div>
+  <div class="vs-card">
+    <div class="vs-num">{{ visitor_stats.today }}</div>
+    <div class="vs-label">Today</div>
+  </div>
+  <div class="vs-card">
+    <div class="vs-num">{{ visitor_stats.week }}</div>
+    <div class="vs-label">This Week</div>
+  </div>
+  <div class="vs-card">
+    <div class="vs-num">{{ visitor_stats.month }}</div>
+    <div class="vs-label">This Month</div>
+  </div>
+  <div class="vs-card">
+    <div class="vs-num">{{ visitor_stats.total }}</div>
+    <div class="vs-label">All Time</div>
+  </div>
+  <div class="vs-card">
+    <div class="vs-num">{{ visitor_stats.unique }}</div>
+    <div class="vs-label">Unique IPs</div>
+  </div>
 </div>
 {% endif %}
 
