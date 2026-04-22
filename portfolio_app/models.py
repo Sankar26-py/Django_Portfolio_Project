@@ -188,3 +188,18 @@ class Achievement(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class PageVisit(models.Model):
+    """Tracks every visit to the portfolio"""
+    timestamp  = models.DateTimeField(auto_now_add=True)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    user_agent = models.TextField(blank=True)
+    referrer   = models.URLField(blank=True, max_length=500)
+
+    class Meta:
+        ordering = ['-timestamp']
+        verbose_name = "Page Visit"
+
+    def __str__(self):
+        return f"Visit at {self.timestamp.strftime('%Y-%m-%d %H:%M')} from {self.ip_address}"

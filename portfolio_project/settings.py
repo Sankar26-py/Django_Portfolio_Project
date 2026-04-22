@@ -43,6 +43,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'portfolio_app.context_processors.google_analytics',
             ],
         },
     },
@@ -80,3 +81,8 @@ MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Google Analytics — set your GA4 Measurement ID here
+# Get it free at: https://analytics.google.com
+# Example: 'G-XXXXXXXXXX'
+GOOGLE_ANALYTICS_ID = ''  # Leave empty to disable

@@ -7,6 +7,16 @@
 <title>{{ profile.name }} — Python Django Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% if GOOGLE_ANALYTICS_ID %}
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_ID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ GOOGLE_ANALYTICS_ID }}');
+</script>
+{% endif %}
 </head>
 <body>
 
@@ -48,7 +58,7 @@
 
   <h1 class="name"><span class="g">{{ profile.name }}</span><br>{{ profile.title }}</h1>
   <p class="hero-role"><strong>{{ profile.tech_stack }}</strong></p>
-  <p class="hero-bio">{{ profile.bio }}</p>
+  <p class="hero-bio">{{ profile.bio|safe }}</p>
 
   <div class="hero-cta">
     <a href="mailto:{{ profile.email }}" class="btn btn-p">Get in touch →</a>
@@ -70,9 +80,9 @@
   <h2 class="s-title">Who I <span class="hl">Am</span></h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>{{ profile.about_para1 }}</p>
-      <p>{{ profile.about_para2 }}</p>
-      <p>{{ profile.about_para3 }}</p>
+      <p>{{ profile.about_para1|safe }}</p>
+      <p>{{ profile.about_para2|safe }}</p>
+      <p>{{ profile.about_para3|safe }}</p>
       <div class="about-highlights">
         {% for hl in profile.about_highlights.all %}
         <div class="hl-row"><span class="arr">→</span><span>{{ hl.text }}</span></div>
@@ -166,7 +176,7 @@
       </div>
       <ul class="exp-ul">
         {% for bullet in exp.bullets.all %}
-        <li>{{ bullet.text }}</li>
+        <li>{{ bullet.text|safe }}</li>
         {% endfor %}
       </ul>
     </div>
