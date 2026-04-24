@@ -1,287 +1,278 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ profile.name }} — Python Django Developer</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  {% if GOOGLE_ANALYTICS_ID %}
-  <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_ID }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ GOOGLE_ANALYTICS_ID }}');
-  </script>
-  {% endif %}
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>{{ profile.name }} — Python Django Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% if GOOGLE_ANALYTICS_ID %}
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_ID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ GOOGLE_ANALYTICS_ID }}');
+</script>
+{% endif %}
 </head>
-
 <body>
 
-  <div class="scroll-bar" id="scrollBar"></div>
+<div class="scroll-bar" id="scrollBar"></div>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">SK<span>.</span></div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    {% if profile.is_open_to_work %}
-    <span class="nav-badge">Open to Work</span>
-    {% endif %}
-  </nav>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SK<span>.</span></div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul id="navMenu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  {% if profile.is_open_to_work %}
+  <span class="nav-badge">Open to Work</span>
+  {% endif %}
+</nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-grid"></div>
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
-    <div class="orb orb-c"></div>
-    <div class="hero-chip">{{ profile.tagline }}</div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+  <div class="hero-chip">{{ profile.tagline }}</div>
 
-    <!-- Profile Photo -->
-    <div class="profile-photo-wrapper">
-      <div class="profile-photo">
-        {% if profile.photo %}
-        <img src="{{ profile.photo.url }}" alt="{{ profile.name }}"
-          style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        {% else %}
-        <img src="{% static 'images/Sankar.jpg' %}" alt="{{ profile.name }}"
-          style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-        {% endif %}
+  <!-- Profile Photo -->
+  <div class="profile-photo-wrapper">
+    <div class="profile-photo">
+      {% if profile.photo %}
+        <img src="{{ profile.photo.url }}" alt="{{ profile.name }}" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      {% else %}
+        <img src="{% static 'images/Sankar.jpg' %}" alt="{{ profile.name }}" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      {% endif %}
+    </div>
+  </div>
+
+  <h1 class="name"><span class="g">{{ profile.name }}</span><br>{{ profile.title }}</h1>
+  <p class="hero-role"><strong>{{ profile.tech_stack }}</strong></p>
+  <p class="hero-bio">{{ profile.bio|safe }}</p>
+
+  <div class="hero-cta">
+    <a href="mailto:{{ profile.email }}" class="btn btn-p">Get in touch →</a>
+    <a href="{{ profile.github_project_url }}" target="_blank" class="btn btn-s">GitHub Project</a>
+    <a href="{{ profile.linkedin_url }}" target="_blank" class="btn btn-g">LinkedIn</a>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><span class="stat-n">{{ profile.years_exp }}</span><span class="stat-l">Years @ TCS</span></div>
+    <div class="stat"><span class="stat-n">{{ profile.perf_gain }}</span><span class="stat-l">Latency Reduction</span></div>
+    <div class="stat"><span class="stat-n">{{ profile.automation_gain }}</span><span class="stat-l">Automation Gain</span></div>
+    <div class="stat"><span class="stat-n">{{ profile.api_count }}</span><span class="stat-l">API Services</span></div>
+    <div class="stat"><span class="stat-n">{{ profile.cgpa }}</span><span class="stat-l">MCA CGPA</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="s-title">Who I <span class="hl">Am</span></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>{{ profile.about_para1|safe }}</p>
+      <p>{{ profile.about_para2|safe }}</p>
+      <p>{{ profile.about_para3|safe }}</p>
+      <div class="about-highlights">
+        {% for hl in profile.about_highlights.all %}
+        <div class="hl-row"><span class="arr">→</span><span>{{ hl.text }}</span></div>
+        {% endfor %}
       </div>
     </div>
 
-    <h1 class="name"><span class="g">{{ profile.name }}</span><br>{{ profile.title }}</h1>
-    <p class="hero-role"><strong>{{ profile.tech_stack }}</strong></p>
-    <p class="hero-bio">{{ profile.bio|safe }}</p>
-
-    <div class="hero-cta">
-      <a href="mailto:{{ profile.email }}" class="btn btn-p">Get in touch →</a>
-      <a href="{{ profile.github_project_url }}" target="_blank" class="btn btn-s">GitHub Project</a>
-      <a href="{{ profile.linkedin_url }}" target="_blank" class="btn btn-g">LinkedIn</a>
-    </div>
-
-    <div class="stats-row">
-      <div class="stat"><span class="stat-n">{{ profile.years_exp }}</span><span class="stat-l">Years @ TCS</span></div>
-      <div class="stat"><span class="stat-n">{{ profile.perf_gain }}</span><span class="stat-l">Latency Reduction</span>
-      </div>
-      <div class="stat"><span class="stat-n">{{ profile.automation_gain }}</span><span class="stat-l">Automation
-          Gain</span></div>
-      <div class="stat"><span class="stat-n">{{ profile.api_count }}</span><span class="stat-l">API Services</span>
-      </div>
-      <div class="stat"><span class="stat-n">{{ profile.cgpa }}</span><span class="stat-l">MCA CGPA</span></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="s-title">Who I <span class="hl">Am</span></h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>{{ profile.about_para1|safe }}</p>
-        <p>{{ profile.about_para2|safe }}</p>
-        <p>{{ profile.about_para3|safe }}</p>
-        <div class="about-highlights">
-          {% for hl in profile.about_highlights.all %}
-          <div class="hl-row"><span class="arr">→</span><span>{{ hl.text }}</span></div>
-          {% endfor %}
-        </div>
-      </div>
-
-      <div class="about-sidebar">
-        {% if profile.languages.all %}
-        <div class="aside-card">
-          <div class="aside-title">Languages</div>
-          {% for lang in profile.languages.all %}
-          <div class="lang-row">
-            <span>{{ lang.name }}</span>
-            <span class="lang-level">{{ lang.level }}</span>
-          </div>
-          {% endfor %}
-        </div>
-        {% endif %}
-
-        {% if profile.certifications.all %}
-        <div class="aside-card">
-          <div class="aside-title">Certifications</div>
-          {% for cert in profile.certifications.all %}
-          <div class="cert-item">
-            <div class="cert-icon">{{ cert.icon }}</div>
-            <div>
-              <div class="cert-name">{{ cert.name }}</div>
-              <div class="cert-issuer">{{ cert.issuer }}</div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-        {% endif %}
-
-        {% if profile.in_progress_title %}
-        <div class="aside-card">
-          <div class="aside-title">In Progress</div>
-          <div class="azure-badge">
-            <strong>{{ profile.in_progress_title }}</strong>
-            {{ profile.in_progress_text }}
-          </div>
-        </div>
-        {% endif %}
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2 class="s-title">Skills &amp; <span class="hl">Technologies</span></h2>
-    <p class="skills-hint">Click <span class="pill">✕</span> to remove · type a skill and press <span class="pill">Enter
-        ↵</span> or <span class="pill">+ Add</span> to add your own</p>
-    <div class="skills-grid" id="skillsGrid"></div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <h2 class="s-title">Career <span class="hl">Journey</span></h2>
-    <div class="tcs-wrapper">
-      <div class="tcs-header">
-        <div class="tcs-logo-area">
-          <div class="tcs-circle">TCS</div>
-          <div>
-            <div class="tcs-name">{{ profile.company_name }}</div>
-            <div class="tcs-sub">{{ profile.company_sub }}</div>
-          </div>
-        </div>
-        <span class="tcs-dur">{{ profile.company_duration }}</span>
-      </div>
-
-      <div class="role-tabs">
-        {% for exp in experiences %}
-        <div class="rtab {% if forloop.first %}active{% endif %}" onclick="switchRole({{ forloop.counter0 }})">
-          {{ exp.tab_label|default:exp.role }}
-          {% if exp.is_current %}<span class="promo-badge">Current</span>{% endif %}
+    <div class="about-sidebar">
+      {% if profile.languages.all %}
+      <div class="aside-card">
+        <div class="aside-title">Languages</div>
+        {% for lang in profile.languages.all %}
+        <div class="lang-row">
+          <span>{{ lang.name }}</span>
+          <span class="lang-level">{{ lang.level }}</span>
         </div>
         {% endfor %}
       </div>
+      {% endif %}
 
-      {% for exp in experiences %}
-      <div class="role-panel {% if forloop.first %}active{% endif %}" id="role-{{ forloop.counter0 }}">
-        <div class="exp-head">
+      {% if profile.certifications.all %}
+      <div class="aside-card">
+        <div class="aside-title">Certifications</div>
+        {% for cert in profile.certifications.all %}
+        <div class="cert-item">
+          <div class="cert-icon">{{ cert.icon }}</div>
           <div>
-            <div class="exp-role">
-              {{ exp.role }}
-              {% if exp.is_current %}<span class="promo-badge">🏅 Promoted</span>{% endif %}
-            </div>
-            <div class="exp-co">{{ exp.company }}</div>
+            <div class="cert-name">{{ cert.name }}</div>
+            <div class="cert-issuer">{{ cert.issuer }}</div>
           </div>
-          <span class="exp-date">{{ exp.start_date }} – {{ exp.end_date }} · {{ exp.duration }}</span>
         </div>
-        <ul class="exp-ul">
-          {% for bullet in exp.bullets.all %}
-          <li>{{ bullet.text|safe }}</li>
-          {% endfor %}
-        </ul>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
-  </section>
+      {% endif %}
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="s-title">Featured <span class="hl2">Projects</span></h2>
-    <div class="proj-grid">
-      {% for project in projects %}
-      <div class="proj-card">
-        <div class="proj-header">
-          <div class="proj-title">{{ project.title }}</div>
-          {% if project.is_external and project.github_url %}
-          <a href="{{ project.github_url }}" target="_blank" class="proj-link">{{ project.label }}</a>
-          {% else %}
-          <span class="proj-link muted">{{ project.label }}</span>
-          {% endif %}
+      {% if profile.in_progress_title %}
+      <div class="aside-card">
+        <div class="aside-title">In Progress</div>
+        <div class="azure-badge">
+          <strong>{{ profile.in_progress_title }}</strong>
+          {{ profile.in_progress_text }}
         </div>
-        <p class="proj-desc">{{ project.description }}</p>
-        <div class="proj-tags">
-          {% for tag in project.get_tags_list %}
-          <span class="proj-tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <h2 class="s-title">Academic <span class="hl">Background</span></h2>
-    <div class="edu-grid">
-      {% for edu in educations %}
-      <div class="edu-card">
-        <div class="edu-deg">{{ edu.degree }}</div>
-        <div class="edu-school">{{ edu.school }}</div>
-        <div class="edu-meta">
-          <span class="edu-pill">{{ edu.period }}</span>
-          {% if edu.cgpa %}<span class="edu-pill gold">{{ edu.cgpa }}</span>{% endif %}
-          {% if edu.label %}<span class="edu-pill">{{ edu.label }}</span>{% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements">
-    <h2 class="s-title">Awards &amp; <span class="hl">Achievements</span></h2>
-    <div class="ach-grid">
-      {% for ach in achievements %}
-      <div class="ach-card">
-        <div class="ach-icon">{{ ach.icon }}</div>
-        <div class="ach-body">
-          <strong>{{ ach.title }}</strong>
-          <p>{{ ach.description }}</p>
-          <div class="ach-date">{{ ach.date_label }}</div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner">
-      <h2 class="s-title" style="text-align:center">Get In <span class="hl">Touch</span></h2>
-      <p>Open to Python Django Developer, Backend Engineer, and related roles. Drop a message — let's talk.</p>
-      <div class="cchips">
-        <a href="mailto:{{ profile.email }}" class="cchip">✉ {{ profile.email }}</a>
-        <a href="tel:{{ profile.phone }}" class="cchip">📞 {{ profile.phone }}</a>
-        <a href="{{ profile.linkedin_url }}" target="_blank" class="cchip">in sankar-django-dev</a>
-        <a href="{{ profile.github_url }}" target="_blank" class="cchip">⌥ GitHub</a>
-        <span class="cchip" style="cursor:default">📍 {{ profile.location }}</span>
-      </div>
-      {% if profile.resume %}
-      <div style="margin-top:2rem;">
-        <a href="{{ profile.resume.url }}" download class="btn btn-p" style="display:inline-block;">📥 Download My
-          Resume</a>
       </div>
       {% endif %}
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>{{ profile.footer_text }}</footer>
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="s-title">Skills &amp; <span class="hl">Technologies</span></h2>
+  <p class="skills-hint">Click <span class="pill">✕</span> to remove · type a skill and press <span class="pill">Enter ↵</span> or <span class="pill">+ Add</span> to add your own</p>
+  <div class="skills-grid" id="skillsGrid"></div>
+</section>
 
-  <!-- skillData from DB injected BEFORE main.js so it's available when JS runs -->
-  <script>
-    const skillData = {{ skill_data_json| safe }};
-  </script>
-  <script src="{% static 'js/main.js' %}"></script>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2 class="s-title">Career <span class="hl">Journey</span></h2>
+  <div class="tcs-wrapper">
+    <div class="tcs-header">
+      <div class="tcs-logo-area">
+        <div class="tcs-circle">TCS</div>
+        <div>
+          <div class="tcs-name">{{ profile.company_name }}</div>
+          <div class="tcs-sub">{{ profile.company_sub }}</div>
+        </div>
+      </div>
+      <span class="tcs-dur">{{ profile.company_duration }}</span>
+    </div>
+
+    <div class="role-tabs">
+      {% for exp in experiences %}
+      <div class="rtab {% if forloop.first %}active{% endif %}" onclick="switchRole({{ forloop.counter0 }})">
+        {{ exp.tab_label|default:exp.role }}
+        {% if exp.is_current %}<span class="promo-badge">Current</span>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    {% for exp in experiences %}
+    <div class="role-panel {% if forloop.first %}active{% endif %}" id="role-{{ forloop.counter0 }}">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role">
+            {{ exp.role }}
+            {% if exp.is_current %}<span class="promo-badge">🏅 Promoted</span>{% endif %}
+          </div>
+          <div class="exp-co">{{ exp.company }}</div>
+        </div>
+        <span class="exp-date">{{ exp.start_date }} – {{ exp.end_date }} · {{ exp.duration }}</span>
+      </div>
+      <ul class="exp-ul">
+        {% for bullet in exp.bullets.all %}
+        <li>{{ bullet.text|safe }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 class="s-title">Featured <span class="hl2">Projects</span></h2>
+  <div class="proj-grid">
+    {% for project in projects %}
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-title">{{ project.title }}</div>
+        {% if project.is_external and project.github_url %}
+          <a href="{{ project.github_url }}" target="_blank" class="proj-link">{{ project.label }}</a>
+        {% else %}
+          <span class="proj-link muted">{{ project.label }}</span>
+        {% endif %}
+      </div>
+      <p class="proj-desc">{{ project.description }}</p>
+      <div class="proj-tags">
+        {% for tag in project.get_tags_list %}
+        <span class="proj-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2 class="s-title">Academic <span class="hl">Background</span></h2>
+  <div class="edu-grid">
+    {% for edu in educations %}
+    <div class="edu-card">
+      <div class="edu-deg">{{ edu.degree }}</div>
+      <div class="edu-school">{{ edu.school }}</div>
+      <div class="edu-meta">
+        <span class="edu-pill">{{ edu.period }}</span>
+        {% if edu.cgpa %}<span class="edu-pill gold">{{ edu.cgpa }}</span>{% endif %}
+        {% if edu.label %}<span class="edu-pill">{{ edu.label }}</span>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <h2 class="s-title">Awards &amp; <span class="hl">Achievements</span></h2>
+  <div class="ach-grid">
+    {% for ach in achievements %}
+    <div class="ach-card">
+      <div class="ach-icon">{{ ach.icon }}</div>
+      <div class="ach-body">
+        <strong>{{ ach.title }}</strong>
+        <p>{{ ach.description }}</p>
+        <div class="ach-date">{{ ach.date_label }}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <h2 class="s-title" style="text-align:center">Get In <span class="hl">Touch</span></h2>
+    <p>Open to Python Django Developer, Backend Engineer, and related roles. Drop a message — let's talk.</p>
+    <div class="cchips">
+      <a href="mailto:{{ profile.email }}" class="cchip">✉ {{ profile.email }}</a>
+      <a href="tel:{{ profile.phone }}" class="cchip">📞 {{ profile.phone }}</a>
+      <a href="{{ profile.linkedin_url }}" target="_blank" class="cchip">in sankar-django-dev</a>
+      <a href="{{ profile.github_url }}" target="_blank" class="cchip">⌥ GitHub</a>
+      <span class="cchip" style="cursor:default">📍 {{ profile.location }}</span>
+    </div>
+    {% if profile.resume %}
+    <div style="margin-top:2rem;">
+      <a href="{{ profile.resume.url }}" download class="btn btn-p" style="display:inline-block;">📥 Download My Resume</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<footer>{{ profile.footer_text }}</footer>
+
+<!-- skillData from DB injected BEFORE main.js so it's available when JS runs -->
+<script>
+  const skillData = {{ skill_data_json|safe }};
+</script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
-
 </html>

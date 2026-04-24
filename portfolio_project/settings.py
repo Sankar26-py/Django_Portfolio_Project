@@ -9,7 +9,7 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Allow localhost for dev, plus any host set in env (e.g. .onrender.com)
 _hosts = os.environ.get('ALLOWED_HOSTS', '')
-ALLOWED_HOSTS = [h.strip() for h in _hosts.split(',') if h.strip()] or ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = [h.strip() for h in _hosts.split(',') if h.strip()] or ['localhost', '127.0.0.1'] #or ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -87,4 +87,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Google Analytics — set your GA4 Measurement ID here
 # Get it free at: https://analytics.google.com
 # Example: 'G-XXXXXXXXXX'
-GOOGLE_ANALYTICS_ID = os.environ.get('GOOGLE_ANALYTICS_ID', '') #for deployement
+GOOGLE_ANALYTICS_ID = ''  # Leave empty to disable

@@ -60,3 +60,34 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 });
+
+// ─── Mobile hamburger menu ────────────────────────────────────────────────────
+(function() {
+  const btn  = document.getElementById('hamburger');
+  const menu = document.getElementById('navMenu');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('mobile-open');
+    document.body.style.overflow = menu.classList.contains('mobile-open') ? 'hidden' : '';
+  });
+
+  // Close menu when a nav link is clicked
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      btn.classList.remove('open');
+      menu.classList.remove('mobile-open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!btn.contains(e.target) && !menu.contains(e.target)) {
+      btn.classList.remove('open');
+      menu.classList.remove('mobile-open');
+      document.body.style.overflow = '';
+    }
+  });
+})();
