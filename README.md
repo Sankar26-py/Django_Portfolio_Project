@@ -89,4 +89,4 @@ git push -u origin main
 
 # Go to render.com → New Web Service → Connect GitHub → Deploy
 ```
-Live at: `https://sankar-portfolio.onrender.com`
+Live at: `https://portfolio-project-frj8.onrender.com/`
